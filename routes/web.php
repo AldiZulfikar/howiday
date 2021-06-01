@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TravelPackageController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +24,7 @@ Route::get('/', function () {
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [DashboardController::class, 'index'])->name('Admin.Dashboard');
+Route::resource('PaketTravel', TravelPackageController::class);
+Route::resource('GaleriTravel', GalleryController::class);
+Route::resource('Transaksi', TransactionController::class);

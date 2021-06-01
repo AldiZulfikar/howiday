@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('assets')}}/dist/img/AdminLTELogo.png" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Judul</span>
+      <span class="brand-text font-weight-light">Howiday Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -18,55 +18,43 @@
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="home" class="nav-link {{request()->is('home') ? 'active' : ''}}">
+            <a href="admin" class="nav-link {{request()->is('Dashboard') ? 'active' : ''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Home
+                Dashboard
               </p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="category" class="nav-link {{request()->is('category') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-th"></i>
+            <a href="PaketTravel" class="nav-link {{request()->is('PaketTravel') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-bus"></i>
               <p>
-                Categories
+                Paket Travel
               </p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="article" class="nav-link {{request()->is('article') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-chart-pie"></i>
+            <a href="GaleriTravel" class="nav-link {{request()->is('GaleriTravel') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-th-large"></i>
               <p>
-                Article
+                Galeri Travel
               </p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link {{request()->is('#') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-tree"></i>
+            <a href="Transaksi" class="nav-link {{request()->is('Transaksi') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-money-bill-wave"></i>
               <p>
-                Video
+                Transaksi
               </p>
             </a>
           </li>
