@@ -32,7 +32,7 @@
                     <i class="fas fa-minus"></i>
                   </button>
                   <button type="button" class="btn btn-tool">
-                    <a href=""><i class="fas fa-plus"></i></a>
+                    <a href="{{route('PaketTravel.create')}}"><i class="fas fa-plus"></i></a>
                   </button>
                 </div>
               </div>
@@ -48,41 +48,44 @@
                     <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Tittle</th>
+                      <th>Title</th>
                       <th>Location</th>
                       <th>Type</th>
                       <th>Departure Date</th>
                       <th>Price</th>
+                      <th>Star</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    
+                    @forelse($items as $row)
                     <tr>
-                      <td><a href="pages/examples/invoice.html">  </a></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><a href="pages/examples/invoice.html"> {{$row -> id}} </a></td>
+                      <td>{{$row -> title}}</td>
+                      <td>{{$row -> location}}</td>
+                      <td>{{$row -> type}}</td>
+                      <td>{{$row -> departure_date}}</td>
+                      <td>{{$row -> price}}</td>
+                      <td>{{$row -> star}}</td>
                       <td>
                         <div class="sparkbar" data-color="#00a65a" data-height="20">
-                        <a class="badge badge-success" href="">Edit</a> | 
-                        
-                        <form action="" method="POST" class="d-inline">
-                        @csrf
-                        @method('delete')
-                        <button class="badge badge-warning">Hapus</button>
-                        </form>
+                          <a class="badge badge-success" href="{{route('PaketTravel.edit', $row->id)}}">Edit</a> | 
+                          
+                          <form action="{{route('PaketTravel.destroy', $row->id)}}" method="POST" class="d-inline">
+                          @csrf
+                          @method('delete')
+                          <button class="badge badge-warning">Hapus</button>
+                          </form>
 
                         </div>
                       </td>
                     </tr>
-                    
+                    @empty
                     <tr>
                       <td colspan=6 class="text-center"><i>Data Masih Kosong</i></td>
+                      <td colspan=6 class="text-center"><i>None</i></td>
                     </tr>
-                    
+                    @endforelse
                     </tbody>
                   </table>
                   </div> 

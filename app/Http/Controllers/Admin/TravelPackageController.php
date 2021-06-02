@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\TravelPackage;
+use Illuminate\Support\Str;
 
 class TravelPackageController extends Controller
 {
@@ -14,7 +16,11 @@ class TravelPackageController extends Controller
      */
     public function index()
     {
-        return view("Admin.PaketTravel.index");
+        $items = TravelPackage::all();
+
+        return view("Admin.PaketTravel.index",[
+            'items' => $items
+        ]);
     }
 
     /**
@@ -24,7 +30,7 @@ class TravelPackageController extends Controller
      */
     public function create()
     {
-        //
+        return view("Admin.PaketTravel.create");
     }
 
     /**
@@ -35,7 +41,11 @@ class TravelPackageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+
+        TravelPackage::create($data);
+        return redirect()->route('PaketTravel.index');
     }
 
     /**
@@ -57,7 +67,11 @@ class TravelPackageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = TravelPackage::findOrFail($id);
+
+        return view('Admin.PaketTravel.edit', [
+            'item' => $item
+        ]);
     }
 
     /**
@@ -69,7 +83,14 @@ class TravelPackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+
+        $item = TravelPackage::findOrFail($id);
+
+        $item->update($data);
+        
+        return redirect()->route('PaketTravel.index');
     }
 
     /**
@@ -80,6 +101,9 @@ class TravelPackageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = TravelPackage::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('PaketTravel.index');
     }
 }
