@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Galeri Travel Baru</h1>
+            <h1>Ubah Galeri Travel</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,13 +25,15 @@
         <div class="card">
               <div class="card-header border-transparent">
 
-                <form method="POST" action="{{route('GaleriTravel.store')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('GaleriTravel.update', $item->id)}}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                     <div class="card-body">
 
                     <label for="travel_packages_id">Pilih Paket Travel</label>
 
                     <select name="travel_packages_id" required class="form-control">
+                    <option value="{{$item->travel_packages_id}}">Harap teliti sebelum mengubah!</option>
                     @foreach($travel_packages as $travel_package)
                         <option value="{{ $travel_package->id}}"> {{ $travel_package->title }}</option>
                     @endforeach

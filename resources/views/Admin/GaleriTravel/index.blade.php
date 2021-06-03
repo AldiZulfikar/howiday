@@ -32,7 +32,7 @@
                     <i class="fas fa-minus"></i>
                   </button>
                   <button type="button" class="btn btn-tool">
-                    <a href=""><i class="fas fa-plus"></i></a>
+                    <a href="{{ route('GaleriTravel.create')}}"><i class="fas fa-plus"></i></a>
                   </button>
                 </div>
               </div>
@@ -54,16 +54,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    
+                    @forelse($items as $row)
                     <tr>
-                      <td><a href="pages/examples/invoice.html">  </a></td>
-                      <td></td>
-                      <td></td>
+                      <td><a href="pages/examples/invoice.html">{{$row -> id}}</a></td>
+                      <td>{{$row -> travel_package->title}}</td>
+                      <td><img src="{{ Storage::url($row->image)}}" alt="" style="width: 150px;" class="img-thumbnail"/></td>
                       <td>
                         <div class="sparkbar" data-color="#00a65a" data-height="20">
-                        <a class="badge badge-success" href="">Edit</a> | 
+                        <a class="badge badge-success" href="{{ route('GaleriTravel.edit',$row->id)}}">Edit</a> | 
                         
-                        <form action="" method="POST" class="d-inline">
+                        <form action="{{ route('GaleriTravel.destroy',$row->id)}}" method="POST" class="d-inline">
                         @csrf
                         @method('delete')
                         <button class="badge badge-warning">Hapus</button>
@@ -72,11 +72,11 @@
                         </div>
                       </td>
                     </tr>
-                    
+                    @empty
                     <tr>
                       <td colspan=6 class="text-center"><i>Data Masih Kosong</i></td>
                     </tr>
-                    
+                    @endforelse
                     </tbody>
                   </table>
                   </div> 
