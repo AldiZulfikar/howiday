@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Transaction;
+use Illuminate\Support\Str;
 
 class TransactionController extends Controller
 {
@@ -14,7 +16,10 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view("Admin.Transaksi.index");
+        $items = Transaction::with([
+            'details', 'travel_package', 'user'
+        ])->get();
+        return view('Admin.Transaksi.index', ['items'=>$items]);
     }
 
     /**
@@ -35,7 +40,12 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+
+        Transaction::create($data);
+        
+        return redirect()->route('Transaksi.index');
     }
 
     /**
@@ -46,7 +56,13 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Transaction::with([
+            'details',
+            'travel_package',
+            'user'
+        ])->findOrFail($id);
+        
+        return view("Admin.Transaksi.detail", ['item'=>$item]);
     }
 
     /**
@@ -57,7 +73,11 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Transaction::findOrFail($id);
+
+        return view('Admin.Transaksi.edit', [
+            'item' => $item
+        ]);
     }
 
     /**
@@ -69,7 +89,14 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+
+        $item = Transaction::findOrFail($id);
+
+        $item->update($data);
+        
+        return redirect()->route('Transaksi.index');
     }
 
     /**
@@ -80,6 +107,9 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Transaction::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('Transaksi.index');
     }
 }

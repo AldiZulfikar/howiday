@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Howiday Admin</title>
+  <title>Howiday | Admin</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,7 +20,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="{{asset('assets')}}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__wobble" src="{{asset('assets')}}/dist/img/logoHowiday.png" alt="HowidayLogo" height="110" width="110">
   </div>
 
   <!-- Navbar -->
@@ -73,7 +73,7 @@
           @else
           <li class="nav-item dropdown">
               <a id="navbarDropdown" class="nav-link dropdown-toggle align-text-center" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  <img src="{{asset('assets')}}/dist/img/user2-160x160.jpg" alt="" width="28" height="28" class="rounded-pill d-inline-block align-text-center"> &nbsp;
+                  <img src="{{asset('assets')}}/dist/img/avatar4.png" alt="" width="28" height="28" class="rounded-pill d-inline-block align-text-center"> &nbsp;
                   {{ Auth::user()->name }}
               </a>
 

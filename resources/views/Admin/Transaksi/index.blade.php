@@ -57,20 +57,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    
+                    @forelse($items as $row)    
                     <tr>
-                      <td><a href="pages/examples/invoice.html">  </a></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><a href="pages/examples/invoice.html"> {{$row -> id}} </a></td>
+                      <td>{{$row -> travel_package -> title}}</td>
+                      <td>{{$row -> user -> name}}</td>
+                      <td>{{$row -> additional_visa}}</td>
+                      <td>{{$row -> transaction_total}}</td>
+                      <td>{{$row -> transaction_status}}</td>
                       <td>
                         <div class="sparkbar" data-color="#00a65a" data-height="20">
-                        <a class="badge badge-primary" href="">Detail</a> |
-                        <a class="badge badge-success" href="">Edit</a> | 
+                        <a class="badge badge-primary" href="{{ route('Transaksi.show', $row->id)}}">Detail</a> |
+                        <a class="badge badge-success" href="{{ route('Transaksi.edit', $row->id)}}">Edit Status</a> | 
                         
-                        <form action="" method="POST" class="d-inline">
+                        <form action="{{ route('Transaksi.destroy', $row->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('delete')
                         <button class="badge badge-warning">Hapus</button>
@@ -79,11 +79,11 @@
                         </div>
                       </td>
                     </tr>
-                    
+                    @empty  
                     <tr>
                       <td colspan=6 class="text-center"><i>Data Masih Kosong</i></td>
                     </tr>
-                    
+                    @endforelse
                     </tbody>
                   </table>
                   </div> 
