@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Gallery Travel</h1>
+            <h1>Galeri Travel</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active">Gallery Travel</li>
+              <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
+              <li class="breadcrumb-item active">Galeri Travel</li>
             </ol>
           </div>
         </div>
@@ -25,12 +25,9 @@
         <!-- TABLE: LATEST ORDERS -->
         <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">Latest Orders</h3>
+                <h3 class="card-title">Tabel Galeri Travel</h3>
 
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
                   <button type="button" class="btn btn-tool">
                     <a href="{{ route('GaleriTravel.create')}}"><i class="fas fa-plus"></i></a>
                   </button>
@@ -50,7 +47,7 @@
                       <th>ID</th>
                       <th>Travel</th>
                       <th>Gambar</th>
-                      <th>Action</th>
+                      <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>

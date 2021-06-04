@@ -11,7 +11,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
               <li class="breadcrumb-item active">Paket Travel</li>
             </ol>
           </div>
@@ -25,12 +25,9 @@
         <!-- TABLE: LATEST ORDERS -->
         <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">Latest Orders</h3>
+                <h3 class="card-title">Tabel Paket Travel</h3>
 
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
                   <button type="button" class="btn btn-tool">
                     <a href="{{route('PaketTravel.create')}}"><i class="fas fa-plus"></i></a>
                   </button>
@@ -48,13 +45,13 @@
                     <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Title</th>
-                      <th>Location</th>
-                      <th>Type</th>
-                      <th>Departure Date</th>
-                      <th>Price</th>
-                      <th>Star</th>
-                      <th>Action</th>
+                      <th>Judul</th>
+                      <th>Lokasi</th>
+                      <th>Tipe</th>
+                      <th>Tanggal keberangkatan</th>
+                      <th>Harga</th>
+                      <th>Bintang</th>  
+                      <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>

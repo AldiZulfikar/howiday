@@ -11,7 +11,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
               <li class="breadcrumb-item active">Transaksi Travel</li>
             </ol>
           </div>
@@ -25,16 +25,7 @@
         <!-- TABLE: LATEST ORDERS -->
         <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">Latest Orders</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool">
-                    <a href=""><i class="fas fa-plus"></i></a>
-                  </button>
-                </div>
+                <h3 class="card-title">Tabel Transaksi Travel</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -49,11 +40,11 @@
                     <tr>
                       <th>ID</th>
                       <th>Travel</th>
-                      <th>User</th>
+                      <th>Pengguna</th>
                       <th>Visa</th>
                       <th>Total</th>
                       <th>Status</th>
-                      <th>Action</th>
+                      <th>Aksi</th>
                     </tr>
                     </thead>
                     <tbody>

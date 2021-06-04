@@ -9,12 +9,6 @@
           <div class="col-sm-6">
             <h1>Tambahkan Paket Travel Baru</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="Admin.Dashboard">Dashboard</a></li>
-              <li class="breadcrumb-item active">Tambah Paket Travel</li>
-            </ol>
-          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -28,40 +22,41 @@
                 @csrf
                     <div class="card-body">
                     <label>Judul Travel</label>
-                        <input type="text" name="title" class="form-control" id="text" placeholder="Tambahkan judul travel..." value="{{ old('title')}}">
+                        <input type="text" name="title" required class="form-control" id="text" placeholder="Tambahkan judul travel..." value="{{ old('title')}}">
                         <br>
                     <label>Lokasi Travel</label>
-                        <input type="text" name="location" class="form-control" id="text" placeholder="Lokasi travel..." value="{{ old('location')}}">
+                        <input type="text" name="location" required class="form-control" id="text" placeholder="Lokasi travel..." value="{{ old('location')}}">
                         <br>
                     <label>Deskripsi Travel</label>
-                        <textarea name="about" rows="10" class="d-block w-100 form-control">{{ old('about') }}</textarea>
+                        <textarea name="about" rows="10" required class="d-block w-100 form-control">{{ old('about') }}</textarea>
                         <br>
-                    <label>Featured event</label>        
-                        <input type="text" class="form-control" name="featured_event" placeholder="Featured event" value="{{ old('featured_event')}}">
+                    <label>Acara Unggulan</label>        
+                        <input type="text" class="form-control" required name="featured_event" placeholder="Featured event" value="{{ old('featured_event')}}">
                         <br>
                     <label>Bahasa</label>
-                        <input type="text" class="form-control" name="language" placeholder="Language" value="{{ old('language')}}">
+                        <input type="text" class="form-control" required name="language" placeholder="Language" value="{{ old('language')}}">
                         <br>
                     <label>Makanan</label>
-                        <input type="text" class="form-control" name="foods" placeholder="Foods" value="{{ old('foods')}}">
+                        <input type="text" class="form-control" required name="foods" placeholder="Foods" value="{{ old('foods')}}">
                         <br>
-                    <label>Departured Date</label>
-                        <input type="date" class="form-control" name="departure_date" placeholder="Departure Date" value="{{ old('departure_date')}}">
+                    <label>Tanggal Keberangkatan</label>
+                        <input type="date" class="form-control" required name="departure_date" placeholder="Departure Date" value="{{ old('departure_date')}}">
                         <br>
                     <label>Durasi</label>
-                        <input type="text" class="form-control" name="duration" placeholder="Duration" value="{{ old('duration')}}">
+                        <input type="text" class="form-control" required name="duration" placeholder="Duration" value="{{ old('duration')}}">
                         <br>
                     <label>Tipe</label>
-                        <input type="text" class="form-control" name="type" placeholder="Tipe Travel..." value="{{ old('type')}}">
+                        <input type="text" class="form-control" required name="type" placeholder="Tipe Travel..." value="{{ old('type')}}">
                         <br>
                     <label>Harga</label>
-                        <input type="number" class="form-control" name="price" placeholder="Harga Travel..." value="{{ old('price')}}">
+                        <input type="number" class="form-control" required name="price" placeholder="Harga Travel..." value="{{ old('price')}}">
                         <br>
                     <label>Bintang</label>
-                        <input type="number" class="form-control" name="star" placeholder="Bintang Travel..." value="{{ old('star')}}">
+                        <input type="number" class="form-control" required name="star" placeholder="Bintang Travel..." value="{{ old('star')}}">
                         <br>
                     <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
                     <a href="{{route('PaketTravel.index')}}" class="btn btn-primary">Back</a>
                     </div>
                 </form>

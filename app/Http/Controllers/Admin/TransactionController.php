@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use App\Http\Requests\Admin\TransactionRequest;
 use Illuminate\Support\Str;
 
 class TransactionController extends Controller

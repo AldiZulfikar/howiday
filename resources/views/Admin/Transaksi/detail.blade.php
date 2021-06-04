@@ -9,12 +9,6 @@
           <div class="col-sm-6">
             <h1>Detail Transaksi {{ $item->user->name}}</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="Admin.Dashboard">Dashboard</a></li>
-              <li class="breadcrumb-item active">Detail Transaksi</li>
-            </ol>
-          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -56,9 +50,9 @@
                       <tr>
                         <th>ID</th>
                         <th>Nama</th>
-                        <th>Nationality</th>
+                        <th>Negara</th>
                         <th>Visa</th>
-                        <th>DOE Passport</th>
+                        <th>Paspor</th>
                       </tr>
                       @foreach ($item->details as $detail)
                           <tr>
