@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Transaction;
 use App\Http\Requests\Admin\TransactionRequest;
+use App\Models\Transaction;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class TransactionController extends Controller
@@ -20,7 +20,7 @@ class TransactionController extends Controller
         $items = Transaction::with([
             'details', 'travel_package', 'user'
         ])->get();
-        return view('Admin.Transaksi.index', ['items'=>$items]);
+        return view('pages.admin.transaksi.index', ['items' => $items]);
     }
 
     /**
@@ -39,14 +39,14 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TransactionRequest $request)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
 
         Transaction::create($data);
-        
-        return redirect()->route('Transaksi.index');
+
+        return redirect()->route('transaksi.index');
     }
 
     /**
@@ -62,8 +62,8 @@ class TransactionController extends Controller
             'travel_package',
             'user'
         ])->findOrFail($id);
-        
-        return view("Admin.Transaksi.detail", ['item'=>$item]);
+
+        return view("pages.admin.transaksi.detail", ['item' => $item]);
     }
 
     /**
@@ -76,7 +76,7 @@ class TransactionController extends Controller
     {
         $item = Transaction::findOrFail($id);
 
-        return view('Admin.Transaksi.edit', [
+        return view('pages.admin.transaksi.edit', [
             'item' => $item
         ]);
     }
@@ -88,7 +88,7 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TransactionRequest $request, $id)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
@@ -96,8 +96,8 @@ class TransactionController extends Controller
         $item = Transaction::findOrFail($id);
 
         $item->update($data);
-        
-        return redirect()->route('Transaksi.index');
+
+        return redirect()->route('transaksi.index');
     }
 
     /**
@@ -111,6 +111,6 @@ class TransactionController extends Controller
         $item = Transaction::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('Transaksi.index');
+        return redirect()->route('transaksi.index');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TravelPackage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware(['auth', 'verified']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth', 'verified']);
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $items = TravelPackage::with(['galleries'])->get();
+        return view('pages.home', [
+            'items' => $items
+        ]);
     }
 }

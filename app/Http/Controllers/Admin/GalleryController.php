@@ -20,8 +20,8 @@ class GalleryController extends Controller
     {
         $items = Gallery::with(['travel_package'])->get();
 
-        return view("Admin.GaleriTravel.index", [
-            'items'=>$items
+        return view("pages.admin.galeri-travel.index", [
+            'items' => $items
         ]);
     }
 
@@ -34,7 +34,7 @@ class GalleryController extends Controller
     {
         $travel_packages = TravelPackage::all();
 
-        return view('Admin.GaleriTravel.create',[
+        return view('pages.admin.galeri-travel.create', [
             'travel_packages' => $travel_packages
         ]);
     }
@@ -45,15 +45,16 @@ class GalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GalleryRequest $request)
     {
         $data = $request->all();
         $data['image'] = $request->file('image')->store(
-            'assets/galery','public'
+            'assets/galery',
+            'public'
         );
 
         Gallery::create($data);
-        return redirect()->route('GaleriTravel.index');
+        return redirect()->route('galeri-travel.index');
     }
 
     /**
@@ -78,7 +79,7 @@ class GalleryController extends Controller
         $item = Gallery::findOrFail($id);
         $travel_packages = TravelPackage::all();
 
-        return view("Admin.Galeritravel.edit",[
+        return view("pages.admin.galeri-travel.edit", [
             'item' => $item,
             'travel_packages' => $travel_packages
         ]);
@@ -91,17 +92,18 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GalleryRequest $request, $id)
     {
         $data = $request->all();
         $data['image'] = $request->file('image')->store(
-            'assets/galery', 'public'
+            'assets/galery',
+            'public'
         );
         $item = Gallery::findOrFail($id);
 
         $item->update($data);
-        
-        return redirect()->route('GaleriTravel.index');
+
+        return redirect()->route('galeri-travel.index');
     }
 
     /**
@@ -115,6 +117,6 @@ class GalleryController extends Controller
         $item = Gallery::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('GaleriTravel.index');
+        return redirect()->route('galeri-travel.index');
     }
 }

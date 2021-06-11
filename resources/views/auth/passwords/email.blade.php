@@ -1,85 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Judul | Home</title>
+@extends('layouts.auth')
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{asset('assets')}}/plugins/fontawesome-free/css/all.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{asset('assets')}}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('assets')}}/dist/css/adminlte.min.css">
-</head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<br>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+@section('content')
+    <div class="container mx-auto px-5 md:px-0">
+        <div
+            class="flex flex-col w-full sm:w-2/3 md:w-2/3 lg:w-1/2 xl:w-1/2 bg-gray-100 shadow-2xl rounded-2xl p-12 my-36 mx-auto">
+            <a href="#" class="text-center mb-14">
+                <h1 class="text-accentCyan font-semibold font-poppins" style="font-size: 27px">How<span
+                        class="text-accentOrange">iday.</span>
+                </h1>
+            </a>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            <h1 class="text-left text-accentDarkGray font-poppins text-base sm:text-2xl font-medium mb-4 sm:mb-7 ">Reset
+                Your Password</h1>
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+            <p class="text-gray-400 font-light font-poppins text-base mb-7">Just enter your email address, and we will
+                send
+                you a link to reset your password.</p>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            @if (session('status'))
+                <div class="alert text-accentCyan font-poppins font-light text-sm md:text-base" role="alert">
+                    {{ session('status') }}
                 </div>
-            </div>
+            @endif
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email"
+                    autofocus
+                    class="rounded-2xl border border-gray-400 text-accentBlack form-input px-4 sm:px-6 py-3 sm:py-5 bg-white focus:outline-none font-poppins font-normal w-full focus:ring-2 focus:ring-accentCyan sm:mb-11 mb-5 @error('email') is-invalid @enderror">
+
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
+                <div class="text-center mb-11">
+                    <button href="#destination" type="submit"
+                        class="text-white bg-accentCyan hover:bg-accentCyanHover py-3 px-20 rounded-md text-center lg:text-left transition duration-300 font-medium inline-block cursor-pointer focus:outline-none"
+                        style="box-shadow: 0px 8px 15px 0px #3BBABE;
+                                                                                                                                                    ">Continue
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-sm sm:text-base font-poppins font-light text-accentDarkGray text-center">Back to Sign In?
+                <a href="{{ route('login') }}">
+                    <span class="text-accentOrange hover:underline">Click here
+                    </span>
+                </a>
+            </p>
+
         </div>
     </div>
-</div>
-<!-- jQuery -->
-<script src="{{asset('assets')}}/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="{{asset('assets')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="{{asset('assets')}}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('assets')}}/dist/js/adminlte.js"></script>
-
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="{{asset('assets')}}/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="{{asset('assets')}}/plugins/raphael/raphael.min.js"></script>
-<script src="{{asset('assets')}}/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="{{asset('assets')}}/plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="{{asset('assets')}}/plugins/chart.js/Chart.min.js"></script>
-
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('assets')}}/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('assets')}}/dist/js/pages/dashboard2.js"></script>
-</body>
-</html>
+@endsection

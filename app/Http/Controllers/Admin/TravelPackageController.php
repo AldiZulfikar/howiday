@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\TravelPackage;
-use Illuminate\Support\Str;
 use App\Http\Requests\Admin\TravelPackageRequest;
+use App\Models\TravelPackage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TravelPackageController extends Controller
 {
@@ -19,7 +19,7 @@ class TravelPackageController extends Controller
     {
         $items = TravelPackage::all();
 
-        return view("Admin.PaketTravel.index",[
+        return view("pages.admin.paket-travel.index", [
             'items' => $items
         ]);
     }
@@ -31,7 +31,7 @@ class TravelPackageController extends Controller
      */
     public function create()
     {
-        return view("Admin.PaketTravel.create");
+        return view("pages.admin.paket-travel.create");
     }
 
     /**
@@ -40,13 +40,13 @@ class TravelPackageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TravelPackageRequest $request)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
 
         TravelPackage::create($data);
-        return redirect()->route('PaketTravel.index');
+        return redirect()->route('paket-travel.index');
     }
 
     /**
@@ -70,7 +70,7 @@ class TravelPackageController extends Controller
     {
         $item = TravelPackage::findOrFail($id);
 
-        return view('Admin.PaketTravel.edit', [
+        return view('pages.admin.paket-travel.edit', [
             'item' => $item
         ]);
     }
@@ -82,7 +82,7 @@ class TravelPackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TravelPackageRequest $request, $id)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
@@ -90,8 +90,8 @@ class TravelPackageController extends Controller
         $item = TravelPackage::findOrFail($id);
 
         $item->update($data);
-        
-        return redirect()->route('PaketTravel.index');
+
+        return redirect()->route('paket-travel.index');
     }
 
     /**
@@ -105,6 +105,6 @@ class TravelPackageController extends Controller
         $item = TravelPackage::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('PaketTravel.index');
+        return redirect()->route('paket-travel.index');
     }
 }
