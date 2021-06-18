@@ -55,7 +55,8 @@
         </div>
 
         <div class="footer-sub py-8">
-            <p class="text-base font-poppins font-light text-white text-center">Copyright 2021. All Rights Reserved,
+            <p class="text-base font-poppins font-light text-white text-center">Copyright 2021&#169; All Rights
+                Reserved,
                 Howiday.</p>
         </div>
     </div>

@@ -35,15 +35,24 @@
                     <span>Contact</span>
                 </a>
 
-                <a href="/"
-                    class="lg:inline-flex lg:w-auto w-full px-4 py-2 font-normal text-accentDarkGray items-center justify-center hover:text-accentBlack font-poppins hover:underline">
-                    <span>Blog</span>
-                </a>
+                @auth
+
+                    <form action="{{ route('edit-profile.edit', Auth::user()->id) }}">
+                    @csrf
+                        <button
+                            type="submit"
+                            class="lg:inline-flex lg:w-auto w-full px-4 py-2 font-normal text-accentDarkGray items-center justify-center hover:text-accentBlack font-poppins hover:underline focus:outline-none flex flex-row">
+                            <span>Edit Profile</span>
+                            <img src="{{ Auth::user()->picuser ? Storage::url(Auth::user()->picuser) : url('./images/pic_user.svg') }}" alt="" class="w-8 h-8 rounded-full ml-2">
+                        </button>
+                    </form>
+
+                @endauth
 
                 @guest
                     <form class="focus:outline-none">
                         <button type="button" onclick="event.preventDefault();location.href='{{ url('login') }}';"
-                            class="lg:inline-flex lg:w-auto w-full px-4 py-2 font-normal text-accentDarkGray items-center justify-center hover:text-accentBlack font-poppins hover:underline focus:outline-none">
+                            class="lg:inline-flex lg:w-auto w-full px-4 py-2 font-normal text-accentCyan items-center justify-center hover:text-accentCyanHover font-poppins hover:underline focus:outline-none">
                             <span>Sign In</span>
                         </button>
                     </form>

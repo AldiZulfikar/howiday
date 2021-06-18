@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\EditProfileController;
+use App\Http\Controllers\EditPasswordController;
 
 
 /*
@@ -67,3 +69,18 @@ Route::prefix('admin')
     });
 
 Auth::routes(['verify' => true]);
+
+Route::prefix('edit-user')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::resource('edit-profile', EditProfileController::class);
+        Route::resource('edit-password', EditPasswordController::class);
+    });
+
+// Route::get('/edit-profile/password', [EditProfileController::class, 'pass'])
+//     ->name('edit-password')
+//     ->middleware(['auth']);
+
+// Route::get('/password', function () {
+//     return view('pages.edit-profile.edit-password');
+// })->name('password');

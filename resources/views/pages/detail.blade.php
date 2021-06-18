@@ -6,7 +6,7 @@
         <ul class="inline">
             <li class="inline"><a href="/" class="font-poppins text-base hover:underline font-light">Destination</a> /
             </li>
-            <li class="inline"><a href="/" class="font-poppins text-base hover:underline font-semibold">Details</a></li>
+            <li class="inline"><p class="inline font-poppins text-base font-semibold cursor-default">Details</p></li>
         </ul>
     </section>
 
@@ -24,7 +24,7 @@
                         </h1>
                         <h3 class="text-accentOrange text-lg font-poppins font-medium mb-7 text-center lg:text-left">
                             {{ $item->location }}</h3>
-                        <p class="text-accentDarkGray font-poppins font-medium text-base text-center lg:text-left">
+                        <p class="text-accentDarkGray font-poppins font-medium text-base text-justify">
                             {!! $item->about !!}
                         </p>
                     </div>
@@ -152,6 +152,15 @@
 
 @push('prepend-style')
     <link rel="stylesheet" href="{{ url('./js/xzoom/xzoom.css') }}" />
+
+    <style>
+        .gallery .xactive {
+            border: 4px solid #f59828;
+            box-shadow: none;
+        }
+
+    </style>
+
 @endpush
 
 @push('addon-script')

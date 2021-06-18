@@ -74,7 +74,7 @@
                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Succes</span>
+                                <span class="info-box-text">Success</span>
                                 <span class="info-box-number">{{ $transaction_success }}</span>
                             </div>
                             <!-- /.info-box-content -->

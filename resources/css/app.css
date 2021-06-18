@@ -117,4 +117,8 @@
         border: 4px solid #f59828;
         box-shadow: none;
     }
+
+    .biodata input[type="file"] {
+        display: none;
+    }
 }

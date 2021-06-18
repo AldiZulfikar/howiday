@@ -23,7 +23,7 @@
                         @forelse ($item->details as $detail)
                             <tr class="border-b border-gray-400">
                                 <td class="text-center text-gray-400 py-5 font-poppins font-normal"><img
-                                        src="{{ url('./images/pic_user.svg') }}" class="w-6 h-6 md:w-10 md:h-10 mx-auto"
+                                        src="{{ $item->user->picuser ? Storage::url(Auth::user()->picuser) : url('./images/pic_user.svg') }}" class="w-6 h-6 md:w-10 rounded-full md:h-10 mx-auto"
                                         alt=""></td>
                                 <td class="text-center text-gray-400 py-5 font-poppins font-normal text-xs md:text-lg">
                                     {{ $item->user->name }}</td>
@@ -210,7 +210,7 @@
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
                                 <span class="font-semibold text-accentCyan">IDR
-                                    {{ $item->transaction_total }}.0{{ mt_rand(0, 99) }}</span>
+                                    {{ $item->transaction_total }}.0{{ mt_rand(10, 99) }}</span>
                             </h3>
                         </div>
                     </div>
