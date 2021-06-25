@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\EditProfileController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\EditPasswordController;
 
 
@@ -74,7 +75,11 @@ Route::prefix('edit-user')
     ->middleware(['auth'])
     ->group(function () {
         Route::resource('edit-profile', EditProfileController::class);
-        Route::resource('edit-password', EditPasswordController::class);
+        Route::post('crop', [EditProfileController::class, 'crop'])->name('edit-profile.crop');
+        Route::get('account/password', [PasswordController::class, 'edit'])
+            ->name('password.edit');
+        Route::patch('account/password', [PasswordController::class, 'update'])
+            ->name('password.edit');
     });
 
 // Route::get('/edit-profile/password', [EditProfileController::class, 'pass'])

@@ -11,7 +11,7 @@
                 <a href="{{ url('/') }}"
                     class="text-white bg-accentCyan hover:bg-accentCyanHover py-3 px-12 rounded-md text-center lg:text-left mb-14 transition duration-300 font-medium inline-block cursor-pointer"
                     style="box-shadow: 0px 8px 15px 0px #3BBABE;
-                            ">Kembali ke Beranda
+                                            ">Kembali ke Beranda
                 </a>
             </div>
         </div>

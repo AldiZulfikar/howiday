@@ -7,7 +7,7 @@
     {{-- START: HEADER --}}
     <header class="container mx-auto mb-20">
         <div class="flex flex-col lg:flex-row items-center px-4 md:px-0">
-            <div class="left lg:w-1/2 lg:mb-0 mb-16">
+            <div class="left lg:w-1/2 lg:mb-0 mb-16" data-aos="fade-up">
                 <h1 class="font-playfair font-bold text-accentBlack mb-9 text-center lg:text-left text-4xl xl:text-5xl">
                     Explore wondrous <span class="text-accentOrange">places,</span> gain
                     new <span class="text-accentCyan">experiences.</span>
@@ -24,7 +24,7 @@
                     <a href="#destination"
                         class="text-white bg-accentCyan hover:bg-accentCyanHover py-3 px-12 rounded-md text-center lg:text-left mb-14 transition duration-300 font-medium inline-block cursor-pointer"
                         style="box-shadow: 0px 8px 15px 0px #3BBABE;
-                                                                                                                                                                                                                                                                                                                                                                                                                ">Discover
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    ">Discover
                         Now
                     </a>
                 </div>
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="right xl:ml-auto mx-auto relative px-10 sm:px-0">
+            <div class="right xl:ml-auto mx-auto relative px-10 sm:px-0" data-aos="fade-up">
                 <div class="relative">
                     <img src="{{ url('images/banner.jpg') }}" alt=""
                         class="banner-img z-20 relative xl:transform xl:-translate-x-6 xl:-translate-y-4">
@@ -64,7 +64,7 @@
     {{-- END: HEADER --}}
 
     {{-- START:DESTINATION --}}
-    <section class="destination container mx-auto mb-20 px-7 md:px-0">
+    <section class="destination container mx-auto mb-20 px-7 md:px-0" data-aos="fade-up">
         <h1 class="text-center font-playfair font-bold text-accentBlack text-4xl mb-2" id="destination">Choose Your
             Perfect Destination
         </h1>
@@ -109,7 +109,7 @@
     {{-- END:DESTINATION --}}
 
     {{-- START:TESTIMONIALS --}}
-    <section class="testimonial container mx-auto mb-28 md:px-0" id="about">
+    <section class="testimonial container mx-auto mb-28 md:px-0" id="about" data-aos="fade-up">
         <h1 class="font-playfair font-bold text-accentBlack text-center mb-2 text-3xl lg:text-4xl ">Testimonials
             Center
         </h1>
@@ -147,7 +147,7 @@
                     <a href="#"
                         class="text-white bg-accentBlack hover:bg-gray-600 py-3 px-12 rounded-md text-center lg:text-left transition duration-300 font-medium inline-block cursor-pointer text-base"
                         style="box-shadow: 0px 8px 15px rgba(43, 43, 40, 0.3);
-                                                                                                                                                                                                                                                                                                                                                                                                                    ">Baca
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        ">Baca
                         Cerita Mereka
                     </a>
                 </div>

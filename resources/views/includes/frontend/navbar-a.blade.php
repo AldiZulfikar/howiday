@@ -38,12 +38,14 @@
                 @auth
 
                     <form action="{{ route('edit-profile.edit', Auth::user()->id) }}">
-                    @csrf
-                        <button
-                            type="submit"
+                        @csrf
+                        <button type="submit"
                             class="lg:inline-flex lg:w-auto w-full px-4 py-2 font-normal text-accentDarkGray items-center justify-center hover:text-accentBlack font-poppins hover:underline focus:outline-none flex flex-row">
                             <span>Edit Profile</span>
-                            <img src="{{ Auth::user()->picuser ? Storage::url(Auth::user()->picuser) : url('./images/pic_user.svg') }}" alt="" class="w-8 h-8 rounded-full ml-2">
+                            <div class="w-8 h-8 rounded-full ml-2 overflow-hidden">
+                                <img src="{{ Auth::user()->image ? Storage::url(Auth::user()->image) : url('./images/pic_user.svg') }}"
+                                    alt="" class="w-full h-full object-cover rounded-full">
+                            </div>
                         </button>
                     </form>
 

@@ -22,11 +22,20 @@
                     <tbody>
                         @forelse ($item->details as $detail)
                             <tr class="border-b border-gray-400">
-                                <td class="text-center text-gray-400 py-5 font-poppins font-normal"><img
-                                        src="{{ $item->user->picuser ? Storage::url(Auth::user()->picuser) : url('./images/pic_user.svg') }}" class="w-6 h-6 md:w-10 rounded-full md:h-10 mx-auto"
-                                        alt=""></td>
+                                {{-- <td class="text-center text-gray-400 py-5 font-poppins font-normal">
+                                    <div class="w-6 h-6 md:w-10 rounded-full md:h-10 mx-auto overflow-hidden">
+                                        <img src="{{ $item->user->image ? Storage::url(Auth::user()->image) : url('./images/pic_user.svg') }}"
+                                            class="w-full h-full object-cover" alt="">
+                                    </div>
+                                </td> --}}
+                                <td>
+                                    <div class="w-6 h-6 md:w-10 rounded-full md:h-10 mx-auto overflow-hidden">
+                                        <img src="https://ui-avatars.com/api/?name={{ $detail->username }}"
+                                            class="image-avatar h-full w-full object-cover" />
+                                    </div>
+                                </td>
                                 <td class="text-center text-gray-400 py-5 font-poppins font-normal text-xs md:text-lg">
-                                    {{ $item->user->name }}</td>
+                                    {{ $detail->username }}</td>
                                 <td class="text-center text-gray-400 py-5 font-poppins font-normal text-xs md:text-lg">
                                     {{ $detail->nationality }}
                                 </td>
@@ -81,7 +90,7 @@
                                         x-model="datepickerValue" x-on:keydown.escape="showDatepicker = false"
                                         class="w-full pl-3 pr-10 py-3 bg-gray-100
 
-                                                                                                                                                                                                                                                                                            form-select text-accentBlack font-poppins font-light text-lg form-input username rounded-lg px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0  "
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            form-select text-accentBlack font-poppins font-light text-lg form-input username rounded-lg px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0  "
                                         placeholder="Select date" />
 
                                     <div class="absolute top-2 right-0 px-3 py-2">
@@ -105,9 +114,9 @@
                                                 <button type="button"
                                                     class="inline-flex p-1 transition duration-100 ease-in-out rounded-full cursor-pointer focus:outline-none focus:shadow-outline hover:bg-gray-100"
                                                     @click="if (month == 0) {
-                                                                                                                                                                                                                                                                                                          year--;
-                                                                                                                                                                                                                                                                                                          month = 12;
-                                                                                                                                                                                                                                                                                                      } month--; getNoOfDays()">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          year--;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          month = 12;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      } month--; getNoOfDays()">
                                                     <svg class="inline-flex w-6 h-6 text-gray-400" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -117,11 +126,11 @@
                                                 <button type="button"
                                                     class="inline-flex p-1 transition duration-100 ease-in-out rounded-full cursor-pointer focus:outline-none focus:shadow-outline hover:bg-gray-100"
                                                     @click="if (month == 11) {
-                                                                                                                                                                                                                                                                                                          month = 0;
-                                                                                                                                                                                                                                                                                                          year++;
-                                                                                                                                                                                                                                                                                                      } else {
-                                                                                                                                                                                                                                                                                                          month++;
-                                                                                                                                                                                                                                                                                                      } getNoOfDays()">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          month = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          year++;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      } else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          month++;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      } getNoOfDays()">
                                                     <svg class="inline-flex w-6 h-6 text-gray-400" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -150,10 +159,10 @@
                                                     <div @click="getDateValue(date)" x-text="date"
                                                         class="text-sm leading-none text-center transition duration-100 ease-in-out rounded-full cursor-pointer"
                                                         :class="{
-                                                                                                                                                                                                                                                                                                            'bg-indigo-200': isToday(date) == true,
-                                                                                                                                                                                                                                                                                                            'text-gray-600 hover:bg-indigo-200': isToday(date) == false && isSelectedDate(date) == false,
-                                                                                                                                                                                                                                                                                                            'bg-indigo-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true
-                                                                                                                                                                                                                                                                                                        }">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            'bg-indigo-200': isToday(date) == true,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            'text-gray-600 hover:bg-indigo-200': isToday(date) == false && isSelectedDate(date) == false,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            'bg-indigo-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }">
                                                     </div>
                                                 </div>
                                             </template>
@@ -187,21 +196,24 @@
                                 VISA
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
-                                IDR {{ $item->additional_visa }}.000
+                                IDR
+                                {{ $item->additional_visa != 0 ? $item->additional_visa : '0' }}{{ $item->additional_visa != 0 ? '.000' : '' }}
                             </h3>
                         </div>
                         <div class="flex flex-row justify-between mb-1">
                             <h2 class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left">Trip Price
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
-                                IDR {{ $item->travel_package->price }}.000/Person
+                                IDR
+                                {{ $item->travel_package->price != 0 ? $item->travel_package->price : '0' }}{{ $item->travel_package->price != 0 ? '.000' : '' }}/Person
                             </h3>
                         </div>
                         <div class="flex flex-row justify-between mb-1">
                             <h2 class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left">Sub Total
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
-                                IDR {{ $item->transaction_total }}.000
+                                IDR
+                                {{ $item->transaction_total != 0 ? $item->transaction_total : '0' }}{{ $item->transaction_total != 0 ? '.000' : '' }}
                             </h3>
                         </div>
                         <div class="flex flex-row justify-between mb-6">
@@ -210,7 +222,7 @@
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
                                 <span class="font-semibold text-accentCyan">IDR
-                                    {{ $item->transaction_total }}.0{{ mt_rand(10, 99) }}</span>
+                                    {{ $item->transaction_total != 0 ? $item->transaction_total : '' }}{{ $item->transaction_total != 0 ? '.0' : '' }}{{ $item->transaction_total != 0 ? mt_rand(10, 99) : '0' }}</span>
                             </h3>
                         </div>
                     </div>

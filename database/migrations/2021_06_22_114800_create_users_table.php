@@ -21,10 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('roles')->default('USER');
             $table->string('username');
-            $table->string('jk')->default('');
-            $table->string('ttl')->default('');
-            $table->string('notel')->default('');
-            $table->string('picuser')->default('');
+            $table->string('jk')->nullable();
+            $table->string('ttl')->nullable();
+            $table->string('notel')->nullable();
+            $table->text('image')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

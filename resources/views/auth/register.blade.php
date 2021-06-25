@@ -57,7 +57,7 @@
                     id="password-confirm" name="password_confirmation" required autocomplete="new-password">
 
                 <div class="flex flex-row items-center mb-11">
-                    <input type="checkbox" class="form-checkbox mr-2 rounded-full">
+                    <input type="checkbox" required class="form-checkbox mr-2 rounded-full">
                     <p class="font-poppins font-medium text-base text-left text-accentDarkGray">By signing up, i agree to
                         Howiday Terms of Services</p>
                 </div>
@@ -66,7 +66,7 @@
                     <button type="submit"
                         class="text-white bg-accentCyan hover:bg-accentCyanHover py-3 px-20 rounded-md text-center lg:text-left transition duration-300 font-medium inline-block cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500"
                         style="box-shadow: 0px 8px 15px 0px #3BBABE;
-                                                                                                    ">Continue
+                                                                                                        ">Continue
                     </button>
                 </div>
             </form>

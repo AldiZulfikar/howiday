@@ -873,7 +873,16 @@ html,
 }
 
 .biodata input[type="file"] {
+  /* display: none; */
+}
+
+.maintenance {
   display: none;
+  transition: 0.5s all;
+}
+
+.maintenance-parent:hover .maintenance {
+  display: block;
 }
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]){

@@ -1,10 +1,11 @@
 <div class="left w-full lg:w-1/3 lg:mb-0 mb-7 border border-gray-300 rounded-2xl  lg:mr-12 px-8 py-12 flex flex-col">
     <div class="flex flex-row items-center mb-7">
-        <div class="image w-20 h-20 rounded-full  mr-6 overflow-hidden">
-            <img src="{{ Auth::user()->picuser ? Storage::url(Auth::user()->picuser) : url('./images/pic_user.svg') }}"  class="h-full w-full mr-6 " alt="">
+        <div class="image w-20 h-20 mr-5 rounded-full overflow-hidden">
+            <img src="{{ Auth::user()->image ? Storage::url(Auth::user()->image) : url('./images/pic_user.svg') }}"
+                class="w-full h-full object-cover " alt="">
         </div>
-        <div class="flex flex-col">
-            <h1 class="font-poppins font-medium text-2xl  text-accentDarkGray">{{ $item->name }}</h1>
+        <div class="flex flex-col w-auto overflow-hidden">
+            <h1 class="font-poppins font-medium text-xl  text-accentDarkGray">{{ $item->name }}</h1>
             <div class="flex items-center">
                 <img src="{{ url('./images/ic_pencil.svg') }}" class="w-5 h-5 mr-3" alt="">
                 <p class="text-lg font-light font-poppins text-gray-400">Edit Profile</p>
@@ -25,28 +26,29 @@
                         Diri
                     </a>
                 </li>
-                <li class="list-none mb-2">
-                    {{-- <a href="{{ route('password') }}"
-                        class="font-poppins font-normal text-base no-underline hover:underline text-accentDarkGray">Ubah Password
-                    </a> --}}
-                    {{-- <form action="{{ route('edit-password.index', Auth::user()->id) }}">
-                        <button type="submit"
-                            class="font-poppins font-normal text-base no-underline hover:underline text-accentDarkGray focus:outline-none">Ubah
-                            Password
-                        </button>
-                    </form> --}}
+                <li class="list-none mb-2 relative maintenance-parent">
+                    <div
+                        class="maintenance py-2 px-6 absolute bg-red-300 rounded-t-lg rounded-br-lg w-96 -top-11 left-8 animate-bounce">
+                        <p class="font-poppins font-light text-base text-center ">Masih dalam tahap
+                            pengembangan :).</p>
+                    </div>
+                    <a href="#" {{-- href="{{ route('password.edit' , $item->id) }}" --}}
+                        class="font-poppins font-normal text-base no-underline hover:underline text-accentDarkGray">Ubah
+                        Password
+                    </a>
                 </li>
-
             </ul>
-
         </div>
     </div>
     <div class="flex flex-row items-center mt-7">
+
         <div class="icon w-7 h-7 mr-6">
             <img src="{{ url('./images/ic_ticket.svg') }}" class="w-full h-full" alt="">
         </div>
-        <div>
-            <h1 class="text-accentDarkGray font-semibold font-poppins text-lg mb-2">Tiket Saya</h1>
+        <div class="">
+
+            <h1 href="#" class="text-accentDarkGray font-semibold font-poppins text-lg mb-2">Tiket
+                Saya</h1>
         </div>
     </div>
     <div class="flex flex-row items-center mt-7">
