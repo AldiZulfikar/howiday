@@ -42,23 +42,7 @@
         });
 
     </script> --}}
-    <script>
-        $('#image-ijabo').ijaboCropTool({
-            processUrl: '{{ route('edit-profile.crop') }}',
-            preview: '.user-picture',
-            setRatio: 1,
-            allowedExtensions: ['jpg', 'jpeg', 'png'],
-            buttonsText: ['Crop & Simpan', 'Batal'],
-            buttonsColor: ['#3BBABE', '#F59828', -15],
-            withCSRF: ['_token', '{{ csrf_token() }}'],
-            onSuccess: function(message, element, status) {
-                alert(message);
-            },
-            onError: function(message, element, status) {
-                alert(message);
-            }
-        });
-    </script>
+
 </body>
 
 </html>

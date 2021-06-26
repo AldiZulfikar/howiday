@@ -5,7 +5,7 @@
                 class="w-full h-full object-cover " alt="">
         </div>
         <div class="flex flex-col w-auto overflow-hidden">
-            <h1 class="font-poppins font-medium text-xl  text-accentDarkGray">{{ $item->name }}</h1>
+            <h1 class="font-poppins font-medium text-xl  text-accentDarkGray">{{ Auth::user()->name }}</h1>
             <div class="flex items-center">
                 <img src="{{ url('./images/ic_pencil.svg') }}" class="w-5 h-5 mr-3" alt="">
                 <p class="text-lg font-light font-poppins text-gray-400">Edit Profile</p>
@@ -21,18 +21,18 @@
             <h1 class="text-accentDarkGray font-semibold font-poppins text-lg mb-2">Akun Saya</h1>
             <ul>
                 <li class="list-none mb-2">
-                    <a href="{{ route('edit-profile.edit', $item->id) }}"
+                    <a href="{{ route('edit-profile.edit', Auth::user()->id) }}"
                         class="font-poppins font-normal text-base no-underline hover:underline text-accentDarkGray">Biodata
                         Diri
                     </a>
                 </li>
                 <li class="list-none mb-2 relative maintenance-parent">
-                    <div
+                    {{-- <div
                         class="maintenance py-2 px-6 absolute bg-red-300 rounded-t-lg rounded-br-lg w-96 -top-11 left-8 animate-bounce">
                         <p class="font-poppins font-light text-base text-center ">Masih dalam tahap
                             pengembangan :).</p>
-                    </div>
-                    <a href="#" {{-- href="{{ route('password.edit' , $item->id) }}" --}}
+                    </div> --}}
+                    <a href="{{ route('change-pass', Auth::user()->id) }}" {{-- href="{{ route('password.edit' , $item->id) }}" --}}
                         class="font-poppins font-normal text-base no-underline hover:underline text-accentDarkGray">Ubah
                         Password
                     </a>

@@ -7,13 +7,18 @@
             password Anda ke
             orang lain.
         </p>
-        <form action="">
+        <form action="{{ route('change.password') }}" method="POST">
             @csrf
+            @foreach ($errors->all() as $error)
+                <div class="bg-red-400 rounded-md py-2 px-3 mb-2">
+                    <p class="text-danger text-white font-poppins font-light text-base ">{{ $error }}</p>
+                </div>
+            @endforeach
             <div class="flex flex-col md:flex-row mb-1 md:items-center  justify-between md:w-4/5 w-full">
                 <label for="password"
                     class="text-left font-poppins font-medium text-base text-accentDarkGray w-full md:w-2/5">Password
                     Saat ini</label>
-                <input type="password" placeholder="Password"
+                <input id="password" type="password" name="current_password" autocomplete="current-password"
                     class=" px-4 py-2 rounded-md font-poppins font-light w-full md:w-3/5">
             </div>
             <div class="flex flex-col md:flex-row mb-5 md:items-center w-4/5">
@@ -25,14 +30,16 @@
                 <label for="new_password"
                     class="text-left font-poppins font-medium text-base text-accentDarkGray w-full md:w-2/5">Password
                     Baru</label>
-                <input type="password" placeholder="New Password (8-20 Characters)"
+                <input id="new_password" type="password" name="new_password" autocomplete="current-password"
+                    placeholder="Password Baru (8-20 Karakter)"
                     class=" px-4 py-2 rounded-md font-poppins font-light w-full md:w-3/5">
             </div>
             <div class="flex flex-col md:flex-row mb-5 md:items-center  justify-between md:w-4/5 w-full">
                 <label for="confirm_new_password"
                     class="text-left font-poppins font-medium text-base text-accentDarkGray w-full md:w-2/5">Konfirmasi
                     Password</label>
-                <input type="password" placeholder="Konfirmasi Password"
+                <input type="password" placeholder="Konfirmasi Password" id="new_confirm_password"
+                    name="new_confirm_password" autocomplete="current-password"
                     class=" px-4 py-2 rounded-md font-poppins font-light w-full md:w-3/5">
             </div>
             <div class="flex flex-col md:flex-row mb-5 md:items-center md:w-4/5 w-full">

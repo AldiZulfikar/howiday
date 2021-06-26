@@ -13,9 +13,12 @@
 
 <body>
     {{-- START: NAVBAR --}}
-    @include('includes.frontend.navbar-a')
+    <div class="bg-white w-full h-24 shadow-sm fixed z-20">
+        @include('includes.frontend.navbar-a')
+    </div>
     {{-- END: NAVBAR --}}
-
+    <div class="mt-40">
+    </div>
     @yield('content')
 
     {{-- START: FOOTER --}}
