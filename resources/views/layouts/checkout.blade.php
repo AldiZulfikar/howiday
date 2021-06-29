@@ -19,14 +19,17 @@
     </style>
 </head>
 
-<body>
+<body class="dark:bg-gray-800">
+    @include('includes.frontend.darkmode-toggle')
     {{-- START: NAVBAR --}}
-    @include('includes.frontend.navbar-b')
+    <div class="dark:bg-gray-800">
+        @include('includes.frontend.navbar-b')
+    </div>
     {{-- END: NAVBAR --}}
 
     {{-- START: BREADCRUMB --}}
     <section class="breadcrumb container mx-auto mb-20 px-5 lg:px-0">
-        <ul class="inline">
+        <ul class="inline dark:text-white">
             <li class="inline"><a href="/" class="font-poppins text-base hover:underline font-light">Destination</a> /
             </li>
             <li class="inline"><a href="/" class="font-poppins text-base hover:underline font-light">Details</a> /</li>

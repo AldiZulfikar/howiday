@@ -159,3 +159,42 @@ integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="ano
         };
     }
 </script>
+
+
+<script>
+    const chk = document.getElementById('chk');
+
+    chk.addEventListener('change', () => {
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.toggle('dark')
+            // localStorage.setItem('chk', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    });
+</script>
+
+<script>
+    $('*').toggleClass(localStorage.toggled);
+
+    function darkLight() {
+        /*DARK CLASS*/
+        if (localStorage.toggled != 'dark') {
+            $('*, p').toggleClass('dark', true);
+            localStorage.toggled = "dark";
+
+        } else {
+            $('*, p').toggleClass('dark', false);
+            localStorage.toggled = "";
+        }
+    }
+
+    /*Add 'checked' property to input if background == dark*/
+    if ($('main').hasClass('dark')) {
+        $('#checkBox').prop("checked", true)
+    } else {
+        $('#checkBox').prop("checked", false)
+    }
+</script>

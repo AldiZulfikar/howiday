@@ -3,19 +3,22 @@
 @section('content')
     <section class="travel-details container mx-auto px-5 lg:px-0 mb-28">
         <div class="flex flex-col xl:flex-row items-start">
-            <div class="left w-full xl:w-2/3 xl:mb-0 mb-7 border border-gray-300 rounded-2xl mr-7 px-2 py-7 md:p-7">
-                <h1 class="text-accentBlack font-poppins font-medium text-2xl mb-1">What is Going?</h1>
+            <div
+                class="left w-full xl:w-2/3 xl:mb-0 mb-7 border border-gray-300 dark:border-gray-700 rounded-2xl mr-7 px-2 py-7 md:p-7 ">
+                <h1 class="text-accentBlack font-poppins font-medium text-2xl mb-1 dark:text-white">What is Going?</h1>
                 <h2 class="text-accentOrange text-lg font-poppins font-normal mb-7">Trip to
                     {{ $item->travel_package->title }}, {{ $item->travel_package->location }}</h2>
 
                 <table class="table-fixed w-full mb-7">
-                    <thead class=" border-t border-b border-gray-400">
+                    <thead class=" border-t border-b border-gray-400 dark:border-gray-700">
                         <tr>
                             {{-- <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg">Picture</th> --}}
-                            <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg">Userame</th>
-                            <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg">Nat</th>
-                            <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg">Visa</th>
-                            <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg">Passport</th>
+                            <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg dark:text-white">Userame
+                            </th>
+                            <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg dark:text-white">Nat</th>
+                            <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg dark:text-white">Visa</th>
+                            <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg dark:text-white">Passport
+                            </th>
                             <th class="w-2/12 py-4 font-semibold font-poppins text-xs md:text-lg"></th>
                         </tr>
                     </thead>
@@ -53,7 +56,8 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center font-poppins font-light text-2xl text-gray-300 pt-8">
+                                <td colspan="6"
+                                    class="text-center font-poppins font-light text-2xl text-gray-300 pt-8 dark:text-gray-600">
                                     No visitor
                                 </td>
                             </tr>
@@ -62,35 +66,35 @@
                     </tbody>
                 </table>
 
-                <h1 class="font-poppins font-medium text-2xl text-accentDarkGray mb-7">Add Member</h1>
+                <h1 class="font-poppins font-medium text-2xl text-accentDarkGray mb-7 dark:text-white">Add Member</h1>
                 <div class="flex flex-col lg:flex-row items-center">
 
                     <form method="post" action="{{ route('checkout-create', $item->id) }}" class="lg:flex">
                         @csrf
                         <input type="text" name="username" id="username" required placeholder="Username"
-                            class="text-accentBlack font-poppins font-light text-lg form-input username rounded-lg bg-gray-100 py-3 px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0 w-full lg:w-2/5" />
+                            class="text-accentBlack font-poppins font-light text-lg form-input username rounded-lg bg-gray-100 py-3 px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0 w-full lg:w-2/5 dark:bg-gray-600 dark:border-gray-700 dark:text-white" />
 
                         <input type="text" name="nationality" id="nationality" required placeholder="Nat"
-                            class="text-accentBlack font-poppins font-light text-lg form-input username rounded-lg bg-gray-100 py-3 px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0 w-full lg:w-1/6" />
+                            class="text-accentBlack font-poppins font-light text-lg form-input username rounded-lg bg-gray-100 py-3 px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0 w-full lg:w-1/6 dark:bg-gray-600 dark:border-gray-700 dark:text-white" />
 
                         <select name="is_visa" id="is_visa" required
-                            class="form-select text-accentBlack font-poppins font-light text-lg form-input username rounded-lg bg-gray-100 py-3 px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0 w-full lg:w-44">
+                            class="form-select text-accentBlack font-poppins font-light text-lg form-input username rounded-lg bg-gray-100 py-3 px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0 w-full lg:w-44 dark:bg-gray-600 dark:border-gray-700 dark:text-white">
                             <option value="0" class="text-sm md:text-lg">VISA</option>
                             <option value="1" class="text-sm md:text-lg">30 Days</option>
                             <option value="0" class="text-sm md:text-lg">N/A</option>
                         </select>
 
                         <!-- component -->
-                        <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak class="w-full lg:w-auto">
+                        <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak class="w-full lg:w-auto ">
                             <div class="lg:mr-4">
                                 <div class="relative">
                                     <input type="hidden" name="date" x-ref="date" :value="datepickerValue" />
                                     <input type="text" id="doe_passport" name="doe_passport"
                                         x-on:click="initDate(datepickerValue), showDatepicker = !showDatepicker"
                                         x-model="datepickerValue" x-on:keydown.escape="showDatepicker = false"
-                                        class="w-full pl-3 pr-10 py-3 bg-gray-100
+                                        class="w-full pl-3 pr-10 py-3 bg-gray-100 dark:bg-gray-600 dark:border-gray-700 dark:text-white
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        form-select text-accentBlack font-poppins font-light text-lg form-input username rounded-lg px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0  "
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        form-select text-accentBlack font-poppins font-light text-lg form-input username rounded-lg px-3 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-accentCyan lg:mr-3 mb-3 lg:mb-0  "
                                         placeholder="Select date" />
 
                                     <div class="absolute top-2 right-0 px-3 py-2">
@@ -114,9 +118,9 @@
                                                 <button type="button"
                                                     class="inline-flex p-1 transition duration-100 ease-in-out rounded-full cursor-pointer focus:outline-none focus:shadow-outline hover:bg-gray-100"
                                                     @click="if (month == 0) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      year--;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      month = 12;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  } month--; getNoOfDays()">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      year--;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      month = 12;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  } month--; getNoOfDays()">
                                                     <svg class="inline-flex w-6 h-6 text-gray-400" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -126,11 +130,11 @@
                                                 <button type="button"
                                                     class="inline-flex p-1 transition duration-100 ease-in-out rounded-full cursor-pointer focus:outline-none focus:shadow-outline hover:bg-gray-100"
                                                     @click="if (month == 11) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      month = 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      year++;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  } else {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      month++;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  } getNoOfDays()">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      month = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      year++;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  } else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      month++;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  } getNoOfDays()">
                                                     <svg class="inline-flex w-6 h-6 text-gray-400" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -159,10 +163,10 @@
                                                     <div @click="getDateValue(date)" x-text="date"
                                                         class="text-sm leading-none text-center transition duration-100 ease-in-out rounded-full cursor-pointer"
                                                         :class="{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'bg-indigo-200': isToday(date) == true,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'text-gray-600 hover:bg-indigo-200': isToday(date) == false && isSelectedDate(date) == false,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'bg-indigo-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'bg-indigo-200': isToday(date) == true,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'text-gray-600 hover:bg-indigo-200': isToday(date) == false && isSelectedDate(date) == false,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'bg-indigo-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }">
                                                     </div>
                                                 </div>
                                             </template>
@@ -181,18 +185,23 @@
             </div>
 
             <div class="right w-full xl:w-1/3 ">
-                <div class="pt-12 pb-9 px-8 border border-gray-300 rounded-t-2xl">
+                <div class="pt-12 pb-9 px-8 border border-gray-300 rounded-t-2xl dark:border-gray-700">
                     <div class="checkout">
-                        <h1 class="mb-4 text-accentBlack font-poppins font-medium text-2xl">Checkout Information
+                        <h1 class="mb-4 text-accentBlack font-poppins font-medium text-2xl dark:text-white">Checkout
+                            Information
                         </h1>
                         <div class="flex flex-row justify-between mb-1">
-                            <h2 class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left">Members</h2>
+                            <h2
+                                class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left dark:text-gray-400">
+                                Members</h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
                                 {{ $item->details->count() }} Person
                             </h3>
                         </div>
                         <div class="flex flex-row justify-between mb-1">
-                            <h2 class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left">Additional
+                            <h2
+                                class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left dark:text-gray-400">
+                                Additional
                                 VISA
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
@@ -201,7 +210,9 @@
                             </h3>
                         </div>
                         <div class="flex flex-row justify-between mb-1">
-                            <h2 class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left">Trip Price
+                            <h2
+                                class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left dark:text-gray-400">
+                                Trip Price
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
                                 IDR
@@ -209,7 +220,9 @@
                             </h3>
                         </div>
                         <div class="flex flex-row justify-between mb-1">
-                            <h2 class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left">Sub Total
+                            <h2
+                                class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left dark:text-gray-400">
+                                Sub Total
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
                                 IDR
@@ -217,7 +230,8 @@
                             </h3>
                         </div>
                         <div class="flex flex-row justify-between mb-6">
-                            <h2 class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left">
+                            <h2
+                                class="text-gray-500 font-poppins font-semibold text-sm md:text-lg text-left dark:text-gray-400">
                                 Total(+UniqueCode)
                             </h2>
                             <h3 class="font-normal font-poppins text-sm md:text-lg text-gray-400 text-right">
@@ -226,9 +240,10 @@
                             </h3>
                         </div>
                     </div>
-                    <hr class="mb-6" />
+                    <hr class="mb-6 dark:border-gray-700" />
                     <div class="payment-instruction">
-                        <h1 class="mb-4 text-accentBlack font-poppins font-medium text-2xl">Payment Instruction</h1>
+                        <h1 class="mb-4 text-accentBlack font-poppins font-medium text-2xl dark:text-white">Payment
+                            Instruction</h1>
                         <p class="mb-5 text-gray-400 text-sm font-poppins font-light">Please complete payment before
                             you
                             continue the wonderful trip</p>

@@ -13,9 +13,12 @@
 
 </head>
 
-<body>
+<body class="dark:bg-gray-800">
+    @include('includes.frontend.darkmode-toggle')
     {{-- START: NAVBAR --}}
-    @include('includes.frontend.navbar-a')
+    <div class="dark:bg-gray-800">
+        @include('includes.frontend.navbar-a')
+    </div>
     {{-- END: NAVBAR --}}
 
     {{-- START: TRAVEL DETAILs --}}

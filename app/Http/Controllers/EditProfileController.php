@@ -32,12 +32,15 @@ class EditProfileController extends Controller
 
         $item = User::findOrFail($id);
         $data = $request->all();
-        $data['image'] = $request->file('image')->store(
-            'assets/galery',
-            'public'
-        );
+        if ($request->file('image') == !null) {
+            $data['image'] = $request->file('image')->store(
+                'assets/galery',
+                'public'
+            );
+        }
+
         $item->update($data);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Informasi Data diri berhasil di Update');
     }
 
     public function destroy($id)

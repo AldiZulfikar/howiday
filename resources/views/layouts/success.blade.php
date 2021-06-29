@@ -10,14 +10,19 @@
     @include('includes.frontend.style')
 </head>
 
-<body>
+<body class="dark:bg-gray-800">
+    @include('includes.frontend.darkmode-toggle')
     {{-- START: NAVBAR --}}
-    @include('includes.frontend.navbar-b')
+    <div class="dark:bg-gray-800">
+        @include('includes.frontend.navbar-b')
+    </div>
     {{-- END: NAVBAR --}}
 
     {{-- START : MAIN CONTENT --}}
     @yield('content')
     {{-- END : MAIN CONTENT --}}
+
+    @include('includes.frontend.script')
 
 </body>
 
