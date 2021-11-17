@@ -11,7 +11,7 @@
     @include('includes.frontend.style')
 </head>
 
-<body class="dark:bg-gray-800 body">
+<body class="dark:bg-gray-800 body mx-10">
 
     @include('includes.frontend.darkmode-toggle')
 

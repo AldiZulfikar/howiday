@@ -1,6 +1,6 @@
     <section class="navbar container mx-auto mb-11 z-20">
-        <div class="lg:px-4 md:px-0 py-7 flex flex-wrap  items-center justify-between">
-            <div class="logo pl-4 lg:pl-0">
+        <div class="lg:px-4 md:px-0 py-7 flex flex-wrap mx-10 items-center justify-between">
+            <div class="logo pl-0 lg:pl-0">
                 <a href="{{ url('/') }}">
                     <h1 class="text-accentCyan font-semibold font-poppins" style="font-size: 27px">How<span
                             class="text-accentOrange">iday.</span>
@@ -13,7 +13,7 @@
                 <i class="material-icons">menu</i>
             </button>
             <div id="navigation"
-                class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto lg:mt-0 mt-5 dark:bg-gray-800 bg-white lg:bg-transparent shadow-lg lg:shadow-none ">
+                class="hidden top-navbar w-full lg:inline-flex lg:flex-grow pr-10 lg:w-auto lg:mt-0 mt-5 dark:bg-gray-800 bg-white lg:bg-transparent shadow-lg lg:shadow-none ">
                 <div
                     class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto">
                     <a href="/"

@@ -5,7 +5,7 @@
 @section('content')
 
     {{-- START: HEADER --}}
-    <header class="container mx-auto mb-20 ">
+    <header class="container mx-auto px-9 mb-20 ">
         <div class="flex flex-col lg:flex-row items-center px-4 md:px-0">
             <div class="left lg:w-1/2 lg:mb-0 mb-16" data-aos="fade-up">
                 <h1
