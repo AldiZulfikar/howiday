@@ -84,7 +84,7 @@
                 <div class="flex flex-col card-d p-5 hover:shadow-2xl  rounded-2xl transition duration-300 ">
                     <a href="{{ url('/detail', $item->slug) }}" class="inline-block">
                         <div class="img-destiny h-full w-full bg-cover"
-                            style="background-image: url('{{ $item->galleries->count() ? Storage::url($item->galleries->first()->image) : '' }}')">
+                            style="background-image: url('{{ $item->galleries->count() ? asset('upload/' . $item->galleries->first()->image) : '' }}')">
                         </div>
                         <h1 class="text-accentBlack dark:text-white font-medium font-poppins mb-2" style="font-size: 25px">
                             {{ $item->title }}</h1>

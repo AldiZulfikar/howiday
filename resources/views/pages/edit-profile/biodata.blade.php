@@ -15,7 +15,7 @@
                 class="left flex flex-col justify-center md:border-r md:border-gray-400 md:pr-12  md:mr-10 w-full md:w-1/3 py-12 items-center border-b border-gray-400 dark:border-gray-700 md:border-b-0 ">
                 <div class="image rounded-full w-36 h-36 mb-9 overflow-hidden">
 
-                    <img src="{{ Auth::user()->image ? Storage::url(Auth::user()->image) : url('./images/pic_user.svg') }}"
+                    <img src="{{ Auth::user()->image ? asset('upload/' . Auth::user()->image) : url('./images/pic_user.svg') }}"
                         class="w-full h-full object-cover rounded-full user-picture" alt="">
                 </div>
 

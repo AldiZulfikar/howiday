@@ -2,7 +2,7 @@
     class="left w-full lg:w-1/3 lg:mb-0 mb-7 border border-gray-300 dark:border-gray-700 rounded-2xl  lg:mr-12 px-8 py-12 flex flex-col">
     <div class="flex flex-row items-center mb-7">
         <div class="image w-20 h-20 mr-5 rounded-full overflow-hidden">
-            <img src="{{ Auth::user()->image ? Storage::url(Auth::user()->image) : url('./images/pic_user.svg') }}"
+            <img src="{{ Auth::user()->image ? asset('upload/' . Auth::user()->image) : url('./images/pic_user.svg') }}"
                 class="w-full h-full object-cover " alt="">
         </div>
         <div class="flex flex-col w-auto overflow-hidden">

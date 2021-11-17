@@ -39,9 +39,9 @@
                     @auth
                         <a href="{{ route('edit-profile.edit', Auth::user()->id) }}"
                             class="lg:w-auto w-full px-4 py-2 font-normal dark:text-white dark:hover:text-gray-400 text-accentDarkGray hover:text-accentBlack font-poppins hover:underline focus:outline-none flex flex-row cursor-pointer items-center justify-start">
-                            <span>Edit Profile</span>
+                            <span>{{Auth::user()->name}}</span>
                             <div class="w-8 h-8 rounded-full ml-2 overflow-hidden">
-                                <img src="{{ Auth::user()->image ? Storage::url(Auth::user()->image) : url('./images/pic_user.svg') }}"
+                                <img src="{{ Auth::user()->image ? asset('upload/' . Auth::user()->image) : url('./images/pic_user.svg') }}"
                                     alt="" class="w-full h-full object-cover rounded-full">
                             </div>
                         </a>

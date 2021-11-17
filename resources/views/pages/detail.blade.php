@@ -17,8 +17,8 @@
             <div class="left w-full lg:w-2/3 lg:mb-0 mb-7 border border-gray-300 dark:border-gray-700 rounded-2xl mr-7 p-7">
                 <div class="flex flex-col lg:flex-row mb-12">
                     <div class="w-full lg:w-1/2 lg:mr-7 mb-8 lg:mb-0 xzoom-container mx-auto">
-                        <img src="{{ Storage::url($item->galleries->first()->image) }}" class="w-full xzoom" alt=""
-                            id="xzoom-default" xoriginal="{{ Storage::url($item->galleries->first()->image) }}">
+                        <img src="{{ asset('upload/' . $item->galleries->first()->image) }}" class="w-full xzoom" alt=""
+                            id="xzoom-default" xoriginal="{{ asset('upload/' . $item->galleries->first()->image) }}">
                     </div>
                     <div class="w-full lg:w-1/2">
                         <h1
@@ -38,10 +38,10 @@
                     </h1>
                     <div class="grid lg:grid-cols-5 grid-cols-3 gap-4 xzoom-thumbs">
                         @foreach ($item->galleries as $gallery)
-                            <a href="{{ Storage::url($gallery->image) }}" class="w-full h-20 sm:h-32">
-                                <img src="{{ Storage::url($gallery->image) }}" class="xzoom-gallery h-full w-full"
+                            <a href="{{ asset('upload/' . $gallery->image) }}" class="w-full h-20 sm:h-32">
+                                <img src="{{ asset('upload/' . $gallery->image) }}" class="xzoom-gallery h-full w-full"
                                     width="80" height="80" style="object-fit: cover"
-                                    xpreview="{{ Storage::url($gallery->image) }}" alt="" />
+                                    xpreview="{{ asset('upload/' . $gallery->image) }}" alt="" />
                             </a>
                         @endforeach
                     </div>
